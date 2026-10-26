@@ -1,0 +1,6 @@
+Fashion-MNIST Results
+====================
+
+MLP: 87.52%
+CNN: 89.65%
+Attention: 83.83%
