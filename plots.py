@@ -116,3 +116,22 @@ plt.show()
 
 
 print("Latency graphs saved successfully!")
+# ==========================================
+# GRAPH 4 & 5: ACCURACY VS LATENCY
+# ==========================================
+
+for lat, bs in [(latency_batch1, 1), (latency_batch128, 128)]:
+    plt.figure(figsize=(8, 5))
+    plt.scatter(lat, accuracy)
+
+    for i, model in enumerate(models):
+        plt.annotate(model, (lat[i], accuracy[i]))
+
+    plt.xlabel(f"Latency (ms), Batch Size {bs}")
+    plt.ylabel("Test Accuracy (%)")
+    plt.title(f"Test Accuracy vs Inference Latency (Batch {bs})")
+    plt.grid(True)
+    plt.savefig(f"accuracy_vs_latency_batch{bs}.png")
+    plt.show()
+
+print("Accuracy vs latency graphs saved successfully!")
